@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-use Spatie\Activitylog\Models\Activity;
+use App\Models\ActivityLog;
 
 class ActivityLogCrudController extends CrudController
 {
@@ -12,7 +12,7 @@ class ActivityLogCrudController extends CrudController
 
     public function setup(): void
     {
-        CRUD::setModel(Activity::class);
+        CRUD::setModel(ActivityLog::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/activity-log');
         CRUD::setEntityNameStrings('activity', 'activity logs');
 
