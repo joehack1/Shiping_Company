@@ -21,12 +21,38 @@ BlueWave Shipping is a Kenya-based overseas logistics site focused on internatio
 - `/quote` Quote request form (static UI)
 - `/contact` Contact form (static UI)
 
+## Backoffice (Admin)
+Backoffice is powered by Backpack for Laravel and available at `/admin`.
+
+### Admin Features
+- Manage services (CRUD)
+- Create and manage quotations
+- View activity logs (content changes)
+- View system logs (latest Laravel logs)
+
+### Admin Login
+Admin user is created by seeding. Set credentials in `.env`:
+
+```
+ADMIN_NAME="BlueWave Admin"
+ADMIN_EMAIL=admin@bluewaveshipping.co.ke
+ADMIN_PASSWORD=ChangeMe123!
+```
+
+Run the seeder after migrations:
+
+```bash
+php artisan db:seed
+```
+
 ## Data Model (Migrations)
 - `shipments` store shipment details and milestones
 - `quotes` store quote requests
+- `services` store managed service entries
 - `warehouses` store warehouse locations and capacities
 - `storage_contracts` store client storage agreements
 - `contact_messages` store inbound contact messages
+- `activity_log` store content change history
 
 Migration files are in `database/migrations`.
 
@@ -41,12 +67,18 @@ Hero slider images live in `public/assets`. Styling is defined in `public/css/si
 php artisan migrate
 ```
 
-3. Start the app:
+3. Seed the admin user:
+
+```bash
+php artisan db:seed
+```
+
+4. Start the app:
 
 ```bash
 php artisan serve
 ```
 
 ## Notes
-- The forms are currently UI-only. Wire them to controllers and models if you need persistence.
+- The public forms are currently UI-only. Wire them to controllers and models if you need persistence.
 - Adjust hero slider timing or text in `resources/views/pages/home.blade.php`.

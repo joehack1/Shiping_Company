@@ -31,4 +31,8 @@ class Service extends Model
 
     protected static $logOnlyDirty = true;
     protected static $logName = 'service';
+
+    protected $casts = [
+        'is_active' => 'boolean',
+    ];
 }

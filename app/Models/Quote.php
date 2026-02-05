@@ -45,4 +45,8 @@ class Quote extends Model
 
     protected static $logOnlyDirty = true;
     protected static $logName = 'quote';
+
+    protected $casts = [
+        'ready_date' => 'date',
+    ];
 }
