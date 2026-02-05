@@ -3,33 +3,99 @@
 @section('title', 'BlueWave Shipping | Kenya Overseas Logistics')
 
 @section('content')
-<section class="hero">
-    <div class="container hero-grid">
-        <div>
-            <span class="badge">Kenya-based International Logistics</span>
-            <h1>Serious overseas shipping, import management, and secure warehousing.</h1>
-            <p>BlueWave Shipping connects Kenya to the world with disciplined freight forwarding, customs coordination, and bonded storage solutions. We handle the details from origin to last-mile delivery with predictable timelines and real-time visibility.</p>
-            <div class="hero-actions">
-                <a class="button-primary" href="{{ url('/quote') }}">Request a Quote</a>
-                <a class="button-outline" href="{{ url('/tracking') }}">Track a Shipment</a>
+<section class="hero-slider">
+    <div class="slider-track">
+        <div class="slide is-active">
+            <img src="{{ asset('assets/aerial-view-cargo-ship-with-cargo-container-sea.jpg') }}" alt="Container vessel at sea">
+            <div class="slide-overlay"></div>
+            <div class="slide-content container">
+                <span class="badge">Kenya • Overseas Logistics</span>
+                <h1>Serious shipping, disciplined timelines.</h1>
+                <p>We move cargo from global ports to Kenya with precise documentation, clear milestones, and accountable teams.</p>
+                <div class="hero-actions">
+                    <a class="button-primary" href="{{ url('/quote') }}">Request a Quote</a>
+                    <a class="button-outline" href="{{ url('/tracking') }}">Track a Shipment</a>
+                </div>
             </div>
         </div>
-        <div class="hero-card">
-            <h3>Operational Snapshot</h3>
-            <p class="muted">Dedicated port team in Mombasa, inland clearance desks in Nairobi, and global agent coverage across Africa, Europe, Asia, and North America.</p>
-            <div class="stats">
-                <div class="stat">
-                    <strong>24/7</strong>
-                    <span>Monitoring desk</span>
+        <div class="slide">
+            <img src="{{ asset('assets/shipping-containers-being-loaded-by-crane-port.jpg') }}" alt="Port crane loading containers">
+            <div class="slide-overlay"></div>
+            <div class="slide-content container">
+                <span class="badge">Import Management</span>
+                <h1>Customs clearance without delays.</h1>
+                <p>Dedicated import desk, compliance checks, and proactive coordination with Kenya port authorities.</p>
+                <div class="hero-actions">
+                    <a class="button-primary" href="{{ url('/importing') }}">Import Services</a>
+                    <a class="button-outline" href="{{ url('/contact') }}">Speak to a Specialist</a>
                 </div>
-                <div class="stat">
-                    <strong>48 hrs</strong>
-                    <span>Average clearance window</span>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="{{ asset('assets/shipping-containers-port-sunset.jpg') }}" alt="Container port at sunset">
+            <div class="slide-overlay"></div>
+            <div class="slide-content container">
+                <span class="badge">Warehousing & Storage</span>
+                <h1>Secure storage in Nairobi and Mombasa.</h1>
+                <p>Bonded storage, inventory audits, and temperature-controlled options for sensitive cargo.</p>
+                <div class="hero-actions">
+                    <a class="button-primary" href="{{ url('/warehousing') }}">View Warehousing</a>
+                    <a class="button-outline" href="{{ url('/quote') }}">Storage Quote</a>
                 </div>
-                <div class="stat">
-                    <strong>95%</strong>
-                    <span>On-time sailings</span>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="{{ asset('assets/jumbo-jet-flying-sky.jpg') }}" alt="Cargo aircraft in flight">
+            <div class="slide-overlay"></div>
+            <div class="slide-content container">
+                <span class="badge">Air Freight</span>
+                <h1>Fast air cargo with full visibility.</h1>
+                <p>Priority routes for urgent shipments and time-critical imports with continuous tracking.</p>
+                <div class="hero-actions">
+                    <a class="button-primary" href="{{ url('/shipping') }}">Air & Ocean Freight</a>
+                    <a class="button-outline" href="{{ url('/services') }}">All Services</a>
                 </div>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="{{ asset('assets/3d-cartoon-airplane-sky.jpg') }}" alt="Aircraft illustration">
+            <div class="slide-overlay"></div>
+            <div class="slide-content container">
+                <span class="badge">Client Support</span>
+                <h1>Dedicated account managers for every lane.</h1>
+                <p>We stay on call from booking to delivery with precise reporting and exception handling.</p>
+                <div class="hero-actions">
+                    <a class="button-primary" href="{{ url('/about') }}">About BlueWave</a>
+                    <a class="button-outline" href="{{ url('/contact') }}">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slider-controls container">
+        <button class="slider-dot is-active" type="button" aria-label="Slide 1"></button>
+        <button class="slider-dot" type="button" aria-label="Slide 2"></button>
+        <button class="slider-dot" type="button" aria-label="Slide 3"></button>
+        <button class="slider-dot" type="button" aria-label="Slide 4"></button>
+        <button class="slider-dot" type="button" aria-label="Slide 5"></button>
+    </div>
+</section>
+
+<section class="panel">
+    <div class="container">
+        <h2 class="panel-title">Operational Snapshot</h2>
+        <p class="panel-subtitle">Dedicated port teams in Mombasa, inland clearance desks in Nairobi, and global agent coverage.</p>
+        <div class="stats">
+            <div class="stat">
+                <strong>24/7</strong>
+                <span>Monitoring desk</span>
+            </div>
+            <div class="stat">
+                <strong>48 hrs</strong>
+                <span>Average clearance window</span>
+            </div>
+            <div class="stat">
+                <strong>95%</strong>
+                <span>On-time sailings</span>
             </div>
         </div>
     </div>
@@ -75,4 +141,41 @@
         </div>
     </div>
 </section>
+
+<script>
+    const slides = Array.from(document.querySelectorAll('.hero-slider .slide'));
+    const dots = Array.from(document.querySelectorAll('.hero-slider .slider-dot'));
+    let currentIndex = 0;
+    let timerId = null;
+
+    const activateSlide = (index) => {
+        slides.forEach((slide, idx) => {
+            slide.classList.toggle('is-active', idx === index);
+            slide.classList.toggle('is-exiting', idx === currentIndex && idx !== index);
+        });
+        dots.forEach((dot, idx) => dot.classList.toggle('is-active', idx === index));
+        currentIndex = index;
+    };
+
+    const nextSlide = () => {
+        const nextIndex = (currentIndex + 1) % slides.length;
+        activateSlide(nextIndex);
+    };
+
+    const resetTimer = () => {
+        if (timerId) {
+            window.clearInterval(timerId);
+        }
+        timerId = window.setInterval(nextSlide, 6000);
+    };
+
+    dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+            activateSlide(idx);
+            resetTimer();
+        });
+    });
+
+    resetTimer();
+</script>
 @endsection
