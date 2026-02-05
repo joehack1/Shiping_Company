@@ -8,6 +8,8 @@ use Spatie\Activitylog\Models\Activity;
 
 class ActivityLogCrudController extends CrudController
 {
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
+
     public function setup(): void
     {
         CRUD::setModel(Activity::class);
