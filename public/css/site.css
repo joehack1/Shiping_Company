@@ -531,3 +531,52 @@ textarea {
         margin-right: auto;
     }
 }
+.hero-slider .slide-content h1 {
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+}
+
+.hero-slider .slide-content p {
+    font-size: 0.98rem;
+}
+
+.hero-slider .slide-content .badge {
+    font-size: 0.78rem;
+}
+
+.hero-slider .hero-actions a {
+    font-size: 0.9rem;
+}
+.hero-slider {
+    width: 75%;
+    margin: 0 auto 8px;
+    border-radius: 28px;
+}
+
+.hero-slider .slide img {
+    border-radius: 28px;
+}
+
+@media (max-width: 860px) {
+    .hero-slider {
+        width: 100%;
+        border-radius: 0;
+    }
+    .hero-slider .slide img {
+        border-radius: 0;
+    }
+}
+.hero-slider {
+    width: 85%;
+}
+.hero-slider,
+.slider-track,
+.hero-slider .slide img {
+    min-height: 75vh;
+    height: 75vh;
+}
+.hero-slider,
+.slider-track,
+.hero-slider .slide img {
+    min-height: 56.25vh;
+    height: 56.25vh;
+}
