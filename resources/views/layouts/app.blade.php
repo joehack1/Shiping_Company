@@ -22,7 +22,7 @@
         <header class="site-header">
             <div class="container header-inner">
                 <a class="brand" href="{{ url('/') }}">
-                    <img class="brand-logo" src="https://anzunzucommercialexports.com/favicon.ico" alt="Anzunzu Commercial Exports">
+                    <img class="brand-logo" src="{{ asset('assets/1.png') }}" alt="Anzunzu Commercial Exports">
                     <div class="brand-text">
                         <span class="brand-name">Anzunzu Commercial Exports</span>
                         <span class="brand-tag">Fast Parcel Delivery to the U.S.</span>
@@ -50,6 +50,7 @@
         <footer class="site-footer">
             <div class="container footer-grid">
                 <div>
+                    <img class="footer-logo" src="{{ asset('assets/1.png') }}" alt="Anzunzu Logo">
                     <div class="footer-brand">Anzunzu Commercial Exports</div>
                     <p class="muted">Fast and secure parcel delivery with real-time tracking and customs clearance assistance.</p>
                 </div>
