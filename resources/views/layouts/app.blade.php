@@ -20,6 +20,12 @@
 <body>
     <div class="page">
         <header class="site-header">
+            <div class="header-contact-bar">
+                <div class="container header-contact-inner">
+                    <a href="tel:+254758308213">+254 758 308213</a>
+                    <a href="mailto:info@anzunzucommercialexports.com">info@anzunzucommercialexports.com</a>
+                </div>
+            </div>
             <div class="container header-inner">
                 <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
                     <span></span><span></span><span></span>
@@ -78,13 +84,14 @@
                 </div>
                 <div>
                     <div class="footer-title">Operations</div>
-                    <p class="muted">Nairobi HQ � Mombasa Port Desk</p>
-                    <p class="muted">Mon�Sat: 08:00�18:00 EAT</p>
+                    <p class="muted">Nairobi, along Mobasa-road, Opposire Sameer park GM, Maasai road.</p>
+                    <p class="muted">MON-SAT: 9:00AM - 6:00PM</p>
+                    <p class="muted">SUN: 10:00AM - 5:00PM</p>
                 </div>
                 <div>
                     <div class="footer-title">Contact</div>
-                    <p class="muted">+254 700 000 000</p>
-                    <p class="muted">ops@bluewaveshipping.co.ke</p>
+                    <p class="muted">+254 758 308213</p>
+                    <p class="muted">info@anzunzucommercialexports.com</p>
                 </div>
                 <div>
                     <div class="footer-title">Important Links</div>
@@ -182,3 +189,4 @@
     </script>
 </body>
 </html>
+

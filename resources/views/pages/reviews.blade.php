@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Client Reviews | BlueWave Shipping')
-@section('meta_description', 'What previous clients say about BlueWave Shipping: accountable teams, disciplined timelines, and clear documentation.')
+@section('title', 'Client Reviews | Anzunzu Shipping')
+@section('meta_description', 'What previous clients say about Anzunzu: accountable teams, disciplined timelines, and clear documentation.')
 
 @section('content')
 <section class="hero">

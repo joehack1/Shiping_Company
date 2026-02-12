@@ -66,7 +66,7 @@
                 <h1>Dedicated account managers for every lane.</h1>
                 <p>We stay on call from booking to delivery with precise reporting and exception handling.</p>
                 <div class="hero-actions">
-                    <a class="button-primary" href="{{ url('/about') }}">About BlueWave</a>
+                    <a class="button-primary" href="{{ url('/about') }}">About Anzunzu</a>
                     <a class="button-outline" href="{{ url('/contact') }}">Contact Us</a>
                 </div>
             </div>
@@ -406,7 +406,7 @@
 <section class="panel">
     <div class="container section-split">
         <div>
-            <span class="badge">Why BlueWave</span>
+            <span class="badge">Why Anzunzu Commercial Exports</span>
             <h2 class="panel-title">Precision, compliance, and global coverage.</h2>
             <p class="panel-subtitle">We combine disciplined documentation, advanced tracking, and experienced operators to keep your cargo moving.</p>
             <div class="list">

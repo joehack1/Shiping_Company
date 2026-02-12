@@ -8,7 +8,7 @@
         <div>
             <span class="badge">Services</span>
             <h1>End-to-end shipping, import, and warehousing services.</h1>
-            <p>From overseas shipping coordination to bonded storage and distribution, BlueWave provides a single disciplined logistics partner for Kenya-based businesses.</p>
+            <p>From overseas shipping coordination to bonded storage and distribution, Anzunzu provides a single disciplined logistics partner for Kenya-based businesses.</p>
         </div>
         <div class="hero-card">
             <h3>Service Coverage</h3>

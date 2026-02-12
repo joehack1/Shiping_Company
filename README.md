@@ -1,6 +1,6 @@
-# BlueWave Shipping
+# Anzunzu Shipping
 
-BlueWave Shipping is a Kenya-based overseas logistics site focused on international shipping, import management, and warehousing/storage services. The site presents a serious, blue-and-white visual identity with a sliding hero banner and dedicated service pages.
+Anzunzu Shipping is a Kenya-based overseas logistics site focused on international shipping, import management, and warehousing/storage services. The site presents a serious, blue-and-white visual identity with a sliding hero banner and dedicated service pages.
 
 ## Services Covered
 - Overseas shipping (ocean and air freight)
