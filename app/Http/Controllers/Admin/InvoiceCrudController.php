@@ -40,6 +40,10 @@ class InvoiceCrudController extends CrudController
 
     protected function setupCreateOperation(): void
     {
+        $serviceOptions = Service::query()->orderBy('name')->pluck('name', 'id')->toArray();
+        if (!is_array($serviceOptions)) {
+            $serviceOptions = [];
+        }
         CRUD::field('client_name')->label('Client Name');
         CRUD::field('invoice_number')->label('Invoice #')->hint('Auto-generated if left empty');
         CRUD::field('issue_date')->type('date');
@@ -50,10 +54,10 @@ class InvoiceCrudController extends CrudController
             [
                 'name' => 'service_id',
                 'label' => 'Service',
-                'type' => 'select2',
-                'entity' => 'service',
-                'model' => Service::class,
-                'attribute' => 'name',
+                'type' => 'select2_from_array',
+                'options' => $serviceOptions,
+                'allows_null' => true,
+                'default' => null,
             ],
             [
                 'name' => 'description',
