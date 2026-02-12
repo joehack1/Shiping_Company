@@ -22,6 +22,7 @@ class BookingRequestCrudController extends CrudController
     protected function setupListOperation(): void
     {
         CRUD::column('name');
+        CRUD::column('email');
         CRUD::column('phone');
         CRUD::column('where_to')->label('Destination');
         CRUD::column('status');
@@ -31,6 +32,7 @@ class BookingRequestCrudController extends CrudController
     protected function setupShowOperation(): void
     {
         CRUD::column('name');
+        CRUD::column('email');
         CRUD::column('phone');
         CRUD::column('where_to')->label('Destination');
         CRUD::column('status');

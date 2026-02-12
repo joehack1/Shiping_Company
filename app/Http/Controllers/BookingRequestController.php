@@ -13,6 +13,7 @@ class BookingRequestController extends Controller
     {
         $data = $request->validate([
             'name' => ['required', 'string', 'max:120'],
+            'email' => ['required', 'email', 'max:120'],
             'phone' => ['required', 'string', 'min:6', 'max:25'],
             'where_to' => ['required', 'string', 'max:160'],
             'service_ids' => ['array'],
@@ -21,6 +22,7 @@ class BookingRequestController extends Controller
 
         $br = BookingRequest::create([
             'name' => $data['name'],
+            'email' => $data['email'],
             'phone' => $data['phone'],
             'where_to' => $data['where_to'],
             'service_ids' => $data['service_ids'] ?? [],
@@ -32,6 +34,14 @@ class BookingRequestController extends Controller
                 'New booking: ' . $br->name . ' | ' . $br->phone . ' | ' . $br->where_to . ' | services: ' . implode(',', $br->service_ids ?? []),
                 function ($m) {
                     $m->to('info@anzunzucommercialexports.com')->subject('New Booking Request');
+                }
+            );
+        } catch (\Throwable $e) {}
+        try {
+            Mail::raw(
+                'We received your booking. Destination: ' . $br->where_to . '. Our team will contact you shortly.',
+                function ($m) use ($br) {
+                    $m->to($br->email)->subject('Booking Received');
                 }
             );
         } catch (\Throwable $e) {}
