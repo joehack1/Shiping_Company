@@ -171,13 +171,17 @@
             <p id="qr_status" class="muted" style="margin-top: 10px;"></p>
         </form>
         <hr style="margin: 28px 0; border: none; border-top: 1px solid var(--line);">
-        <h3 id="book-service-section" style="margin-bottom: 10px;">Book Service</h3>
+        <h3 id="book-service-section" style="margin-bottom: 10px;">Book Local Service</h3>
         <p class="panel-subtitle">Enter name, phone, destination and select services to book.</p>
         <form id="book-service-form">
             <div class="form-grid">
                 <div>
                     <label for="bs_name">Name</label>
                     <input id="bs_name" name="name" type="text" placeholder="Your Name" required>
+                </div>
+                <div>
+                    <label for="bs_email">Email</label>
+                    <input id="bs_email" name="email" type="email" placeholder="name@company.com" required>
                 </div>
                 <div>
                     <label for="bs_phone">Phone Number</label>
@@ -251,6 +255,7 @@
                 const fd = new FormData(form);
                 const payload = {
                     name: fd.get('name'),
+                    email: fd.get('email'),
                     phone: fd.get('phone'),
                     where_to: fd.get('where_to'),
                     service_ids: Array.from(form.querySelectorAll('input[name=\"service_ids[]\"]:checked')).map(i => parseInt(i.value, 10))
