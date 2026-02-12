@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ServiceCrudController;
 use App\Http\Controllers\Admin\ReviewCrudController;
 use App\Http\Controllers\Admin\InvoiceCrudController;
 use App\Http\Controllers\Admin\SystemLogController;
+use App\Http\Controllers\Admin\QuickRequestCrudController;
 
 // --------------------------
 // Custom Backpack Routes
@@ -26,6 +27,7 @@ Route::group([
     Route::crud('review', ReviewCrudController::class);
     Route::crud('invoice', InvoiceCrudController::class);
     Route::get('invoice/{id}/pdf', [InvoiceCrudController::class, 'pdf'])->name('invoice.pdf');
+    Route::crud('quick-request', QuickRequestCrudController::class);
     Route::crud('activity-log', ActivityLogCrudController::class);
     Route::get('system-logs', [SystemLogController::class, 'index'])->name('system-logs');
 }); // this should be the absolute last line of this file
