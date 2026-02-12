@@ -236,12 +236,22 @@
                     const data = await res.json();
                     if (data && data.ok) {
                         statusEl.textContent = data.message || 'Instant reply: request received.';
+                        statusEl.classList.remove('muted');
+                        statusEl.style.background = '#eafbe7';
+                        statusEl.style.color = '#14532d';
+                        statusEl.style.border = '1px solid #bbf7d0';
+                        statusEl.style.borderRadius = '12px';
+                        statusEl.style.padding = '10px 12px';
                         form.reset();
                     } else {
                         statusEl.textContent = 'Please try again.';
+                        statusEl.style = '';
+                        statusEl.classList.add('muted');
                     }
                 } catch (err) {
                     statusEl.textContent = 'Please try again.';
+                    statusEl.style = '';
+                    statusEl.classList.add('muted');
                 }
             });
         })();
@@ -273,12 +283,22 @@
                     const data = await res.json();
                     if (data && data.ok) {
                         statusEl.textContent = data.message || 'Booking received. We will contact you.';
+                        statusEl.classList.remove('muted');
+                        statusEl.style.background = '#eafbe7';
+                        statusEl.style.color = '#14532d';
+                        statusEl.style.border = '1px solid #bbf7d0';
+                        statusEl.style.borderRadius = '12px';
+                        statusEl.style.padding = '10px 12px';
                         form.reset();
                     } else {
                         statusEl.textContent = 'Please try again.';
+                        statusEl.style = '';
+                        statusEl.classList.add('muted');
                     }
                 } catch (err) {
                     statusEl.textContent = 'Please try again.';
+                    statusEl.style = '';
+                    statusEl.classList.add('muted');
                 }
             });
         })();
