@@ -25,6 +25,7 @@ class QuickRequestCrudController extends CrudController
         CRUD::column('phone');
         CRUD::column('email');
         CRUD::column('status');
+        CRUD::column('client_notified_at')->type('datetime')->label('Client Notified');
         CRUD::column('created_at')->type('datetime');
     }
 
@@ -33,6 +34,7 @@ class QuickRequestCrudController extends CrudController
         CRUD::column('phone');
         CRUD::column('email');
         CRUD::column('status');
+        CRUD::column('client_notified_at')->type('datetime')->label('Client Notified');
         CRUD::column('created_at')->type('datetime');
         CRUD::addColumn([
             'name' => 'service_ids',

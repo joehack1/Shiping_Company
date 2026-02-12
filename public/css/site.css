@@ -190,6 +190,7 @@ a {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .button-primary {
@@ -201,6 +202,12 @@ a {
     border: 1px solid var(--blue);
     color: var(--blue);
     background: var(--white);
+}
+
+.button-primary:hover,
+.button-outline:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(12, 77, 162, 0.22);
 }
 
 .panel {
@@ -231,6 +238,13 @@ a {
     border: 1px solid var(--line);
     padding: 24px;
     box-shadow: 0 14px 30px rgba(10, 31, 68, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 52px rgba(10, 31, 68, 0.14);
+    border-color: #c9dcf3;
 }
 
 .card h3 {
@@ -293,6 +307,15 @@ a {
     background: var(--white);
     border: 1px solid var(--line);
     color: var(--muted);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    cursor: pointer;
+}
+
+.list-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--blue);
+    box-shadow: 0 10px 24px rgba(10, 31, 68, 0.08);
+    color: var(--navy);
 }
 
 .form-grid {

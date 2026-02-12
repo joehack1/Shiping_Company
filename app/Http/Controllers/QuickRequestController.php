@@ -7,6 +7,7 @@ use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\QuickRequestNotification;
+use App\Mail\QuickRequestClientConfirmation;
 
 class QuickRequestController extends Controller
 {
@@ -28,9 +29,12 @@ class QuickRequestController extends Controller
 
         try {
             Mail::to('info@anzunzucommercialexports.com')->send(new QuickRequestNotification($qr));
-        } catch (\Throwable $e) {
-            // silently ignore mail errors
-        }
+        } catch (\Throwable $e) {}
+        try {
+            Mail::to($qr->email)->send(new QuickRequestClientConfirmation($qr));
+            $qr->client_notified_at = now();
+            $qr->save();
+        } catch (\Throwable $e) {}
 
         if ($request->wantsJson()) {
             return response()->json([
