@@ -377,6 +377,32 @@
     </script>
 </section>
 
+<section class="panel gallery-panel">
+    <div class="container">
+        <h2 class="panel-title">Our Shipping Gallery</h2>
+        <p class="panel-subtitle">A quick look at recent cargo handling, dispatch, and delivery activity.</p>
+        <div class="hero-actions" style="margin-bottom: 18px;">
+            <a class="button-outline" href="{{ url('/gallery') }}">View Full Gallery</a>
+        </div>
+
+        @if(($galleryFiles ?? collect())->isNotEmpty())
+            <div class="social-gallery" id="home-gallery-slider" aria-label="Shipping image gallery">
+                <div class="social-gallery-stage">
+                    @foreach($galleryFiles as $galleryFile)
+                        <figure class="gallery-card{{ $loop->first ? ' is-active' : '' }}" data-gallery-index="{{ $loop->index }}">
+                            <img src="{{ $galleryFile['url'] }}" alt="Shipping gallery image {{ $loop->iteration }}">
+                        </figure>
+                    @endforeach
+                </div>
+            </div>
+        @else
+            <div class="card">
+                <p class="muted">No gallery images available yet.</p>
+            </div>
+        @endif
+    </div>
+</section>
+
 <section class="panel">
     <div class="container section-split">
         <div>
@@ -432,5 +458,91 @@
     });
 
     resetTimer();
+</script>
+<script>
+    (function () {
+        const gallery = document.getElementById('home-gallery-slider');
+        if (!gallery) return;
+        const cards = Array.from(gallery.querySelectorAll('.gallery-card'));
+        if (cards.length === 0) return;
+
+        let activeIndex = 0;
+        let timerId = null;
+
+        const getOffsets = () => {
+            const width = gallery.clientWidth || window.innerWidth;
+            return {
+                near: Math.max(120, Math.min(240, width * 0.2)),
+                far: Math.max(210, Math.min(430, width * 0.37)),
+                hidden: Math.max(280, Math.min(560, width * 0.5))
+            };
+        };
+
+        const profileFromDistance = (distance, offsets) => {
+            const direction = Math.sign(distance) || 1;
+            const absDistance = Math.abs(distance);
+
+            if (absDistance === 0) return { x: 0, rot: 0, scale: 1, z: 30, opacity: 1 };
+            if (absDistance === 1) return { x: direction * offsets.near, rot: direction * 8, scale: 0.91, z: 22, opacity: 1 };
+            if (absDistance === 2) return { x: direction * offsets.far, rot: direction * 15, scale: 0.82, z: 14, opacity: 0.95 };
+
+            return { x: direction * offsets.hidden, rot: direction * 22, scale: 0.7, z: 1, opacity: 0 };
+        };
+
+        const wrappedDistance = (index) => {
+            let distance = index - activeIndex;
+            const half = Math.floor(cards.length / 2);
+
+            if (distance > half) distance -= cards.length;
+            if (distance < -half) distance += cards.length;
+
+            return distance;
+        };
+
+        const render = () => {
+            const offsets = getOffsets();
+            cards.forEach((card, index) => {
+                const distance = wrappedDistance(index);
+                const profile = profileFromDistance(distance, offsets);
+
+                card.style.setProperty('--gallery-x', `${profile.x}px`);
+                card.style.setProperty('--gallery-rotation', `${profile.rot}deg`);
+                card.style.setProperty('--gallery-scale', `${profile.scale}`);
+                card.style.setProperty('--gallery-depth', `${profile.z}`);
+                card.style.setProperty('--gallery-opacity', `${profile.opacity}`);
+                card.classList.toggle('is-active', distance === 0);
+            });
+        };
+
+        const goTo = (index) => {
+            activeIndex = (index + cards.length) % cards.length;
+            render();
+        };
+
+        const startAuto = () => {
+            if (cards.length <= 1) return;
+            if (timerId) window.clearInterval(timerId);
+            timerId = window.setInterval(function () {
+                goTo(activeIndex + 1);
+            }, 2800);
+        };
+
+        cards.forEach((card, index) => {
+            card.addEventListener('click', function () {
+                goTo(index);
+                startAuto();
+            });
+        });
+
+        gallery.addEventListener('mouseenter', function () {
+            if (timerId) window.clearInterval(timerId);
+        });
+
+        gallery.addEventListener('mouseleave', startAuto);
+        window.addEventListener('resize', render, { passive: true });
+
+        render();
+        startAuto();
+    })();
 </script>
 @endsection

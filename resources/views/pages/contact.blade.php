@@ -10,9 +10,10 @@
             <h1>Connect with our Kenya operations team.</h1>
             <p>Speak with our shipping, import, or warehousing specialists. We respond quickly and stay accountable throughout the shipment lifecycle.</p>
             <div class="list">
-                <div class="list-item">Nairobi HQ: Industrial Area, Mombasa Road</div>
-                <div class="list-item">Mombasa Port Desk: Port Reitz Corridor</div>
-                <div class="list-item">Email: ops@bluewaveshipping.co.ke</div>
+                <div class="list-item">Mail: info@anzunzucommercialexports.com</div>
+                <div class="list-item">Phone: +254 758 308213</div>
+                <div class="list-item">Location: Nairobi, along Mobasa-road, Opposire Sameer park GM, Maasai road.</div>
+                <div class="list-item">Open Hours: MON-SAT: 9:00AM - 6:00PM | SUN: 10:00AM - 5:00PM</div>
             </div>
         </div>
         <div class="hero-card">

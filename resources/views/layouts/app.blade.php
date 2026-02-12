@@ -31,6 +31,7 @@
                     <a href="{{ url('/shipping') }}" class="{{ request()->is('shipping') ? 'active' : '' }}">Overseas Shipping</a>
                     <a href="{{ url('/importing') }}" class="{{ request()->is('importing') ? 'active' : '' }}">Importing</a>
                     <a href="{{ url('/warehousing') }}" class="{{ request()->is('warehousing') ? 'active' : '' }}">Warehousing</a>
+                    <a href="{{ url('/gallery') }}" class="{{ request()->is('gallery') ? 'active' : '' }}">Gallery</a>
                     <a href="{{ url('/tracking') }}" class="{{ request()->is('tracking') ? 'active' : '' }}">Tracking</a>
                     <a href="{{ url('/reviews') }}" class="{{ request()->is('reviews') ? 'active' : '' }}">Reviews</a>
                     <a href="{{ url('/contact') }}" class="{{ request()->is('contact') ? 'active' : '' }}">Contact</a>
@@ -52,6 +53,7 @@
                         <a href="{{ url('/shipping') }}" class="{{ request()->is('shipping') ? 'active' : '' }}">Overseas Shipping</a>
                         <a href="{{ url('/importing') }}" class="{{ request()->is('importing') ? 'active' : '' }}">Importing</a>
                         <a href="{{ url('/warehousing') }}" class="{{ request()->is('warehousing') ? 'active' : '' }}">Warehousing</a>
+                        <a href="{{ url('/gallery') }}" class="{{ request()->is('gallery') ? 'active' : '' }}">Gallery</a>
                         <a href="{{ url('/tracking') }}" class="{{ request()->is('tracking') ? 'active' : '' }}">Tracking</a>
                         <a href="{{ url('/reviews') }}" class="{{ request()->is('reviews') ? 'active' : '' }}">Reviews</a>
                         <a href="{{ url('/contact') }}" class="{{ request()->is('contact') ? 'active' : '' }}">Contact</a>
@@ -93,6 +95,7 @@
                         <a href="{{ url('/shipping') }}">Overseas Shipping</a>
                         <a href="{{ url('/importing') }}">Importing</a>
                         <a href="{{ url('/warehousing') }}">Warehousing</a>
+                        <a href="{{ url('/gallery') }}">Gallery</a>
                         <a href="{{ url('/tracking') }}">Tracking</a>
                         <a href="{{ url('/reviews') }}">Reviews</a>
                         <a href="{{ url('/quote') }}">Request Quote</a>
