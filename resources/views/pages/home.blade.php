@@ -138,6 +138,77 @@
 </section>
 
 <section class="panel">
+    <div class="container">
+        <h2 class="panel-title">Quick Request</h2>
+        <p class="panel-subtitle">Instant reply: enter your details and select services needed.</p>
+        <form id="quick-request-form">
+            <div class="form-grid">
+                <div>
+                    <label for="qr_phone">Phone Number</label>
+                    <input id="qr_phone" name="phone" type="tel" placeholder="+254 700 000 000" required>
+                </div>
+                <div>
+                    <label for="qr_email">Email</label>
+                    <input id="qr_email" name="email" type="email" placeholder="name@company.com" required>
+                </div>
+            </div>
+            <div style="margin-top: 14px;">
+                <label>Services Needed</label>
+                <div class="list" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+                    @foreach(($services ?? collect()) as $svc)
+                        <label class="list-item" style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox" name="service_ids[]" value="{{ $svc->id }}">
+                            <span>{{ $svc->name }}</span>
+                        </label>
+                    @endforeach
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="button-primary" type="submit">Send Request</button>
+            </div>
+            <p id="qr_status" class="muted" style="margin-top: 10px;"></p>
+        </form>
+    </div>
+    <script>
+        (function () {
+            const form = document.getElementById('quick-request-form');
+            const statusEl = document.getElementById('qr_status');
+            if (!form) return;
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                statusEl.textContent = '';
+                const fd = new FormData(form);
+                const payload = {
+                    phone: fd.get('phone'),
+                    email: fd.get('email'),
+                    service_ids: Array.from(form.querySelectorAll('input[name=\"service_ids[]\"]:checked')).map(i => parseInt(i.value, 10))
+                };
+                try {
+                    const res = await fetch('{{ route('quick-request.store') }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+                    const data = await res.json();
+                    if (data && data.ok) {
+                        statusEl.textContent = data.message || 'Instant reply: request received.';
+                        form.reset();
+                    } else {
+                        statusEl.textContent = 'Please try again.';
+                    }
+                } catch (err) {
+                    statusEl.textContent = 'Please try again.';
+                }
+            });
+        })();
+    </script>
+</section>
+
+<section class="panel">
     <div class="container section-split">
         <div>
             <span class="badge">Why BlueWave</span>

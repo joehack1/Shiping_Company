@@ -3,8 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Service;
 use App\Models\Review;
+use App\Http\Controllers\QuickRequestController;
 
-Route::view('/', 'pages.home');
+Route::get('/', function () {
+    $services = Service::query()
+        ->where('is_active', true)
+        ->orderBy('sort_order')
+        ->get();
+    return view('pages.home', compact('services'));
+});
 Route::view('/about', 'pages.about');
 Route::get('/services', function () {
     $services = Service::query()
@@ -29,3 +36,4 @@ Route::get('/reviews', function () {
         ->get();
     return view('pages.reviews', compact('reviews'));
 });
+Route::post('/quick-request', [QuickRequestController::class, 'store'])->name('quick-request.store');
