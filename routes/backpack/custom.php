@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ActivityLogCrudController;
 use App\Http\Controllers\Admin\QuoteCrudController;
 use App\Http\Controllers\Admin\ServiceCrudController;
+use App\Http\Controllers\Admin\ReviewCrudController;
 use App\Http\Controllers\Admin\SystemLogController;
 
 // --------------------------
@@ -21,6 +22,7 @@ Route::group([
 ], function () { // custom admin routes
     Route::crud('service', ServiceCrudController::class);
     Route::crud('quote', QuoteCrudController::class);
+    Route::crud('review', ReviewCrudController::class);
     Route::crud('activity-log', ActivityLogCrudController::class);
     Route::get('system-logs', [SystemLogController::class, 'index'])->name('system-logs');
 }); // this should be the absolute last line of this file

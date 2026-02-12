@@ -9,7 +9,7 @@
             <img src="{{ asset('assets/aerial-view-cargo-ship-with-cargo-container-sea.jpg') }}" alt="Container vessel at sea">
             <div class="slide-overlay"></div>
             <div class="slide-content container">
-                <span class="badge">Kenya • Overseas Logistics</span>
+                <span class="badge">Kenya ï¿½ Overseas Logistics</span>
                 <h1>Serious shipping, disciplined timelines.</h1>
                 <p>We move cargo from global ports to Kenya with precise documentation, clear milestones, and accountable teams.</p>
                 <div class="hero-actions">
@@ -70,6 +70,19 @@
                 </div>
             </div>
         </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1543246086-1b78c93666f3?q=80&w=1920&auto=format&fit=crop" alt="Aerial view of container ship">
+            <div class="slide-overlay"></div>
+            <div class="slide-content container">
+                <span class="badge">Global Coverage</span>
+                <h1>Reliable sailings across major trade lanes.</h1>
+                <p>Carrier selection and routing aligned to Kenyan port schedules to minimize delays and demurrage.</p>
+                <div class="hero-actions">
+                    <a class="button-primary" href="{{ url('/services') }}">Explore Services</a>
+                    <a class="button-outline" href="{{ url('/quote') }}">Get a Quote</a>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="slider-controls container">
         <button class="slider-dot is-active" type="button" aria-label="Slide 1"></button>
@@ -77,6 +90,7 @@
         <button class="slider-dot" type="button" aria-label="Slide 3"></button>
         <button class="slider-dot" type="button" aria-label="Slide 4"></button>
         <button class="slider-dot" type="button" aria-label="Slide 5"></button>
+        <button class="slider-dot" type="button" aria-label="Slide 6"></button>
     </div>
 </section>
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Service;
+use App\Models\Review;
 
 Route::view('/', 'pages.home');
 Route::view('/about', 'pages.about');
@@ -19,3 +20,12 @@ Route::view('/warehousing', 'pages.warehousing');
 Route::view('/tracking', 'pages.tracking');
 Route::view('/quote', 'pages.quote');
 Route::view('/contact', 'pages.contact');
+Route::get('/reviews', function () {
+    $reviews = Review::query()
+        ->where('is_published', true)
+        ->orderByDesc('published_at')
+        ->orderByDesc('created_at')
+        ->take(24)
+        ->get();
+    return view('pages.reviews', compact('reviews'));
+});
