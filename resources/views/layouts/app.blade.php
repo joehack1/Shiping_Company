@@ -71,5 +71,17 @@
             </div>
         </footer>
     </div>
+    <script>
+        (function () {
+            var header = document.querySelector('.site-header');
+            var onScroll = function () {
+                if (!header) return;
+                var s = window.scrollY || document.documentElement.scrollTop;
+                header.classList.toggle('is-scrolled', s > 8);
+            };
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+        })();
+    </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Anzunzu Commercial Exports | Fast Parcel Delivery to U.S.')
+@section('title', 'Anzunzu Commercial Exports')
 @section('meta_description', 'Fast & secure parcel delivery to the U.S. with tracking, secure packaging, affordable rates, customs clearance assistance, and dedicated support.')
 
 @section('content')
