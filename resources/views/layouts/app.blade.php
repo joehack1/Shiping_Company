@@ -21,12 +21,6 @@
     <div class="page">
         <header class="site-header">
             <div class="container header-inner">
-                <a class="brand" href="{{ url('/') }}">
-                    <img class="brand-logo" src="{{ asset('assets/1.png') }}" alt="Anzunzu Commercial Exports">
-                    <div class="brand-text">
-                        <span class="brand-name">Anzunzu Commercial Exports</span>
-                    </div>
-                </a>
                 <nav class="nav">
                     <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">Home</a>
                     <a href="{{ url('/about') }}" class="{{ request()->is('about') ? 'active' : '' }}">About</a>
@@ -39,6 +33,12 @@
                     <a href="{{ url('/contact') }}" class="{{ request()->is('contact') ? 'active' : '' }}">Contact</a>
                     <a class="button" href="{{ url('/quote') }}">Request Quote</a>
                 </nav>
+                <a class="brand brand-right" href="{{ url('/') }}">
+                    <img class="brand-logo" src="{{ asset('assets/1.png') }}" alt="Anzunzu Commercial Exports">
+                    <div class="brand-text">
+                        <span class="brand-name">Anzunzu Commercial Exports</span>
+                    </div>
+                </a>
             </div>
         </header>
 
