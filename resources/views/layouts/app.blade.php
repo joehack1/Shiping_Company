@@ -21,6 +21,9 @@
     <div class="page">
         <header class="site-header">
             <div class="container header-inner">
+                <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
                 <nav class="nav">
                     <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">Home</a>
                     <a href="{{ url('/about') }}" class="{{ request()->is('about') ? 'active' : '' }}">About</a>
@@ -39,6 +42,24 @@
                         <span class="brand-name">Anzunzu Commercial Exports</span>
                     </div>
                 </a>
+            </div>
+            <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+                <div class="mobile-sheet">
+                    <div class="mobile-links">
+                        <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">Home</a>
+                        <a href="{{ url('/about') }}" class="{{ request()->is('about') ? 'active' : '' }}">About</a>
+                        <a href="{{ url('/services') }}" class="{{ request()->is('services') ? 'active' : '' }}">Services</a>
+                        <a href="{{ url('/shipping') }}" class="{{ request()->is('shipping') ? 'active' : '' }}">Overseas Shipping</a>
+                        <a href="{{ url('/importing') }}" class="{{ request()->is('importing') ? 'active' : '' }}">Importing</a>
+                        <a href="{{ url('/warehousing') }}" class="{{ request()->is('warehousing') ? 'active' : '' }}">Warehousing</a>
+                        <a href="{{ url('/tracking') }}" class="{{ request()->is('tracking') ? 'active' : '' }}">Tracking</a>
+                        <a href="{{ url('/reviews') }}" class="{{ request()->is('reviews') ? 'active' : '' }}">Reviews</a>
+                        <a href="{{ url('/contact') }}" class="{{ request()->is('contact') ? 'active' : '' }}">Contact</a>
+                    </div>
+                    <div class="mobile-cta">
+                        <a class="button" href="{{ url('/quote') }}">Request Quote</a>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -121,6 +142,38 @@
                     var cy = rect.top + rect.height / 2;
                     for (var i = 0; i < 8; i++) createParticle(cx, cy);
                 }, { passive: true });
+            });
+        })();
+        (function () {
+            var btn = document.getElementById('menu-toggle');
+            var menu = document.getElementById('mobile-menu');
+            if (!btn || !menu) return;
+            var setOpen = function (open) {
+                btn.classList.toggle('is-open', open);
+                menu.classList.toggle('is-open', open);
+                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+                document.body.classList.toggle('no-scroll', open);
+                if (open) {
+                    var items = menu.querySelectorAll('.mobile-links a');
+                    items.forEach(function (el, idx) {
+                        el.style.animationDelay = (idx * 60) + 'ms';
+                    });
+                } else {
+                    menu.querySelectorAll('.mobile-links a').forEach(function (el) {
+                        el.style.animationDelay = '0ms';
+                    });
+                }
+            };
+            btn.addEventListener('click', function () {
+                var isOpen = menu.classList.contains('is-open');
+                setOpen(!isOpen);
+            });
+            menu.addEventListener('click', function (e) {
+                if (e.target === menu) setOpen(false);
+            });
+            menu.querySelectorAll('a').forEach(function (a) {
+                a.addEventListener('click', function () { setOpen(false); });
             });
         })();
     </script>
