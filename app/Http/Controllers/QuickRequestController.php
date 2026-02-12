@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\QuickRequest;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\QuickRequestNotification;
 
 class QuickRequestController extends Controller
 {
@@ -23,6 +25,12 @@ class QuickRequestController extends Controller
             'service_ids' => $data['service_ids'] ?? [],
             'status' => 'received',
         ]);
+
+        try {
+            Mail::to('info@anzunzucommercialexports.com')->send(new QuickRequestNotification($qr));
+        } catch (\Throwable $e) {
+            // silently ignore mail errors
+        }
 
         if ($request->wantsJson()) {
             return response()->json([
