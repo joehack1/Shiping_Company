@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'BlueWave Shipping | Kenya Overseas Logistics')
+@section('meta_description', 'BlueWave Shipping Kenya: overseas logistics, import clearance, warehousing, tracking and quotes.')
 
 @section('content')
 <section class="hero-slider">
