@@ -116,6 +116,8 @@
     </div>
 </section>
 
+ 
+
 <section class="panel">
     <div class="container">
         <h2 class="panel-title">Integrated Logistics Services</h2>
@@ -168,6 +170,40 @@
             </div>
             <p id="qr_status" class="muted" style="margin-top: 10px;"></p>
         </form>
+        <hr style="margin: 28px 0; border: none; border-top: 1px solid var(--line);">
+        <h3 id="book-service-section" style="margin-bottom: 10px;">Book Service</h3>
+        <p class="panel-subtitle">Enter name, phone, destination and select services to book.</p>
+        <form id="book-service-form">
+            <div class="form-grid">
+                <div>
+                    <label for="bs_name">Name</label>
+                    <input id="bs_name" name="name" type="text" placeholder="Your Name" required>
+                </div>
+                <div>
+                    <label for="bs_phone">Phone Number</label>
+                    <input id="bs_phone" name="phone" type="tel" placeholder="+254 700 000 000" required>
+                </div>
+                <div>
+                    <label for="bs_where">Destination</label>
+                    <input id="bs_where" name="where_to" type="text" placeholder="e.g., Mombasa Town" required>
+                </div>
+            </div>
+            <div style="margin-top: 14px;">
+                <label>Services Needed</label>
+                <div class="list" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+                    @foreach(($services ?? collect()) as $svc)
+                        <label class="list-item" style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox" name="service_ids[]" value="{{ $svc->id }}">
+                            <span>{{ $svc->name }}</span>
+                        </label>
+                    @endforeach
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="button-primary" type="submit">Submit Booking</button>
+            </div>
+            <p id="bs_status" class="muted" style="margin-top: 10px;"></p>
+        </form>
     </div>
     <script>
         (function () {
@@ -203,6 +239,114 @@
                 } catch (err) {
                     statusEl.textContent = 'Please try again.';
                 }
+            });
+        })();
+        (function () {
+            const form = document.getElementById('book-service-form');
+            const statusEl = document.getElementById('bs_status');
+            if (!form) return;
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                statusEl.textContent = '';
+                const fd = new FormData(form);
+                const payload = {
+                    name: fd.get('name'),
+                    phone: fd.get('phone'),
+                    where_to: fd.get('where_to'),
+                    service_ids: Array.from(form.querySelectorAll('input[name=\"service_ids[]\"]:checked')).map(i => parseInt(i.value, 10))
+                };
+                try {
+                    const res = await fetch('{{ route('book-service.store') }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+                    const data = await res.json();
+                    if (data && data.ok) {
+                        statusEl.textContent = data.message || 'Booking received. We will contact you.';
+                        form.reset();
+                    } else {
+                        statusEl.textContent = 'Please try again.';
+                    }
+                } catch (err) {
+                    statusEl.textContent = 'Please try again.';
+                }
+            });
+        })();
+    </script>
+</section>
+
+<section class="panel">
+    <div class="container">
+        <h2 class="panel-title">Reach Buyers Beyond Nairobi</h2>
+        <div class="route-grid">
+            <div class="card route-card">
+                <h3>Mombasa Route</h3>
+                <ul class="route-list">
+                    <li>Mlolongo</li><li>Athi River</li><li>Kyumvi</li><li>Salama</li><li>Sultan Hamud</li><li>Emali</li><li>Kibwezi</li><li>Voi</li><li>Mariakani</li><li>Mazeras</li><li>Miritini</li><li>Changamwe</li><li>Mombasa Town</li>
+                </ul>
+            </div>
+            <div class="card route-card">
+                <h3>Nakuru Route</h3>
+                <ul class="route-list">
+                    <li>Limuru</li><li>Kimende</li><li>Mai Mahiu</li><li>Naivasha</li><li>Gilgil</li><li>Kikopey</li><li>Nakuru Town</li>
+                </ul>
+            </div>
+            <div class="card route-card">
+                <h3>Kisumu Route</h3>
+                <ul class="route-list">
+                    <li>Nakuru</li><li>Mau Summit</li><li>Molo</li><li>Timboroa</li><li>Kapsoti</li><li>Awasi</li><li>Ahero</li><li>Kisumu Town</li>
+                </ul>
+            </div>
+            <div class="card route-card">
+                <h3>Meru Route</h3>
+                <ul class="route-list">
+                    <li>Thika</li><li>Kabati</li><li>Kenol</li><li>Makuyu</li><li>Makutano Junction</li><li>Mwea Town</li><li>Embu</li><li>Runyenjes</li><li>Chuka</li><li>Chogoria</li><li>Nkubu</li><li>Meru town</li>
+                </ul>
+            </div>
+            <div class="card route-card">
+                <h3>Eldoret Route</h3>
+                <ul class="route-list">
+                    <li>Nakuru</li><li>Mau Summit</li><li>Molo</li><li>Timboroa</li><li>Burnt Forest</li><li>Eldoret Town</li>
+                </ul>
+            </div>
+            <div class="card route-card">
+                <h3>Additional Routes</h3>
+                <ul class="route-list">
+                    <li>Kitale</li><li>Kisii</li><li>Migori</li><li>Kakamega</li><li>Nyeri</li><li>Busia</li>
+                </ul>
+            </div>
+            <div class="card route-card">
+                <h3>Coastal & Other</h3>
+                <ul class="route-list">
+                    <li>Kilifi</li><li>Mtwapa</li><li>Malindi</li><li>Diani, Ukunda</li><li>Machakos</li><li>Bungoma</li>
+                </ul>
+            </div>
+            <div class="card price-card">
+                <div class="price-badge">KES 260</div>
+                <div class="price-sub">Per Parcel • Up to 4kgs</div>
+                <div class="price-note">Send parcels to these routes</div>
+                <div class="form-actions" style="margin-top: 12px;">
+                    <button class="button-primary" type="button" id="book-service-btn">Book Service</button>
+                </div>
+            </div>
+        </div>
+        <div class="route-note">We support Both Prepaid and Pay on Delivery!</div>
+        <div class="route-note route-note-strong">Secure, Reliable And Affordable Deliveries!</div>
+    </div>
+    <script>
+        (function () {
+            var dots = document.querySelector('.slider-controls');
+            if (dots) dots.style.bottom = '16px';
+            var btn = document.getElementById('book-service-btn');
+            if (!btn) return;
+            btn.addEventListener('click', function () {
+                var section = document.getElementById('book-service-section');
+                if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         })();
     </script>

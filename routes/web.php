@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Service;
 use App\Models\Review;
 use App\Http\Controllers\QuickRequestController;
+use App\Http\Controllers\BookingRequestController;
 
 Route::get('/', function () {
     $services = Service::query()
@@ -37,3 +38,4 @@ Route::get('/reviews', function () {
     return view('pages.reviews', compact('reviews'));
 });
 Route::post('/quick-request', [QuickRequestController::class, 'store'])->name('quick-request.store');
+Route::post('/book-service', [BookingRequestController::class, 'store'])->name('book-service.store');

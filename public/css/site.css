@@ -251,6 +251,66 @@ a {
     gap: 20px;
 }
 
+.route-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+.route-card h3 {
+    color: var(--navy);
+    margin-bottom: 10px;
+}
+.route-list {
+    list-style: disc;
+    padding-left: 18px;
+    color: var(--ink);
+    line-height: 1.6;
+}
+.price-card {
+    background: var(--ice);
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    padding: 24px;
+    box-shadow: 0 14px 30px rgba(10, 31, 68, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.price-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 22px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.4rem;
+    box-shadow: 0 12px 26px rgba(12, 77, 162, 0.22);
+}
+.price-sub {
+    color: var(--muted);
+    font-weight: 600;
+}
+.price-note {
+    color: var(--navy);
+    font-weight: 600;
+}
+.route-note {
+    margin-top: 16px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: var(--ice);
+    color: var(--navy);
+    font-weight: 600;
+}
+.route-note-strong {
+    background: var(--navy);
+    color: #fff;
+}
+
 .card {
     background: var(--white);
     border-radius: 20px;
