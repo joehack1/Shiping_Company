@@ -28,15 +28,15 @@
                     </div>
                 </a>
                 <nav class="nav">
-                    <a href="{{ url('/') }}">Home</a>
-                    <a href="{{ url('/about') }}">About</a>
-                    <a href="{{ url('/services') }}">Services</a>
-                    <a href="{{ url('/shipping') }}">Overseas Shipping</a>
-                    <a href="{{ url('/importing') }}">Importing</a>
-                    <a href="{{ url('/warehousing') }}">Warehousing</a>
-                    <a href="{{ url('/tracking') }}">Tracking</a>
-                    <a href="{{ url('/reviews') }}">Reviews</a>
-                    <a href="{{ url('/contact') }}">Contact</a>
+                    <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">Home</a>
+                    <a href="{{ url('/about') }}" class="{{ request()->is('about') ? 'active' : '' }}">About</a>
+                    <a href="{{ url('/services') }}" class="{{ request()->is('services') ? 'active' : '' }}">Services</a>
+                    <a href="{{ url('/shipping') }}" class="{{ request()->is('shipping') ? 'active' : '' }}">Overseas Shipping</a>
+                    <a href="{{ url('/importing') }}" class="{{ request()->is('importing') ? 'active' : '' }}">Importing</a>
+                    <a href="{{ url('/warehousing') }}" class="{{ request()->is('warehousing') ? 'active' : '' }}">Warehousing</a>
+                    <a href="{{ url('/tracking') }}" class="{{ request()->is('tracking') ? 'active' : '' }}">Tracking</a>
+                    <a href="{{ url('/reviews') }}" class="{{ request()->is('reviews') ? 'active' : '' }}">Reviews</a>
+                    <a href="{{ url('/contact') }}" class="{{ request()->is('contact') ? 'active' : '' }}">Contact</a>
                     <a class="button" href="{{ url('/quote') }}">Request Quote</a>
                 </nav>
             </div>
@@ -95,6 +95,33 @@
             };
             window.addEventListener('scroll', onScroll, { passive: true });
             onScroll();
+        })();
+        (function () {
+            var nav = document.querySelector('.nav');
+            if (!nav) return;
+            var createParticle = function (x, y) {
+                var p = document.createElement('div');
+                p.className = 'particle';
+                var angle = Math.random() * Math.PI * 2;
+                var distance = 16 + Math.random() * 24;
+                var tx = Math.cos(angle) * distance;
+                var ty = Math.sin(angle) * distance;
+                p.style.left = x + 'px';
+                p.style.top = y + 'px';
+                p.style.setProperty('--tx', tx + 'px');
+                p.style.setProperty('--ty', ty + 'px');
+                p.style.animation = 'explode 500ms ease forwards';
+                document.body.appendChild(p);
+                setTimeout(function () { if (p && p.parentNode) p.parentNode.removeChild(p); }, 520);
+            };
+            nav.querySelectorAll('a:not(.button)').forEach(function (a) {
+                a.addEventListener('mouseenter', function (e) {
+                    var rect = a.getBoundingClientRect();
+                    var cx = rect.left + rect.width / 2;
+                    var cy = rect.top + rect.height / 2;
+                    for (var i = 0; i < 8; i++) createParticle(cx, cy);
+                }, { passive: true });
+            });
         })();
     </script>
 </body>
