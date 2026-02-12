@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Anzunzu Commercial Exports')
-@section('meta_description', 'Fast & secure parcel delivery to the U.S. with tracking, secure packaging, affordable rates, customs clearance assistance, and dedicated support.')
+@section('meta_description', 'Fast & secure services with tracking, secure packaging, affordable rates, customs clearance assistance, and dedicated support.')
 
 @section('content')
 <section class="hero-slider">
@@ -11,7 +11,7 @@
             <div class="slide-overlay"></div>
             <div class="slide-content container">
                 <span class="badge">Fast Parcel Delivery</span>
-                <h1>Fast & secure parcel delivery to the U.S.</h1>
+                <h1>Fast & secure serices.</h1>
                 <p>Timely deliveries with real-time tracking, secure packaging, and affordable rates across shipment sizes.</p>
                 <div class="hero-actions">
                     <a class="button-primary" href="{{ url('/quote') }}">Request a Quote</a>

@@ -25,7 +25,6 @@
                     <img class="brand-logo" src="{{ asset('assets/1.png') }}" alt="Anzunzu Commercial Exports">
                     <div class="brand-text">
                         <span class="brand-name">Anzunzu Commercial Exports</span>
-                        <span class="brand-tag">Fast Parcel Delivery to the U.S.</span>
                     </div>
                 </a>
                 <nav class="nav">
@@ -63,6 +62,21 @@
                     <div class="footer-title">Contact</div>
                     <p class="muted">+254 700 000 000</p>
                     <p class="muted">ops@bluewaveshipping.co.ke</p>
+                </div>
+                <div>
+                    <div class="footer-title">Important Links</div>
+                    <div class="footer-links">
+                        <a href="{{ url('/') }}">Home</a>
+                        <a href="{{ url('/about') }}">About</a>
+                        <a href="{{ url('/services') }}">Services</a>
+                        <a href="{{ url('/shipping') }}">Overseas Shipping</a>
+                        <a href="{{ url('/importing') }}">Importing</a>
+                        <a href="{{ url('/warehousing') }}">Warehousing</a>
+                        <a href="{{ url('/tracking') }}">Tracking</a>
+                        <a href="{{ url('/reviews') }}">Reviews</a>
+                        <a href="{{ url('/quote') }}">Request Quote</a>
+                        <a href="{{ url('/contact') }}">Contact</a>
+                    </div>
                 </div>
             </div>
             <div class="container footer-bottom">
