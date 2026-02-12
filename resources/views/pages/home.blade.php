@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'BlueWave Shipping | Kenya Overseas Logistics')
-@section('meta_description', 'BlueWave Shipping Kenya: overseas logistics, import clearance, warehousing, tracking and quotes.')
+@section('title', 'Anzunzu Commercial Exports | Fast Parcel Delivery to U.S.')
+@section('meta_description', 'Fast & secure parcel delivery to the U.S. with tracking, secure packaging, affordable rates, customs clearance assistance, and dedicated support.')
 
 @section('content')
 <section class="hero-slider">
@@ -10,9 +10,9 @@
             <img src="{{ asset('assets/aerial-view-cargo-ship-with-cargo-container-sea.jpg') }}" alt="Container vessel at sea">
             <div class="slide-overlay"></div>
             <div class="slide-content container">
-                <span class="badge">Kenya � Overseas Logistics</span>
-                <h1>Serious shipping, disciplined timelines.</h1>
-                <p>We move cargo from global ports to Kenya with precise documentation, clear milestones, and accountable teams.</p>
+                <span class="badge">Fast Parcel Delivery</span>
+                <h1>Fast & secure parcel delivery to the U.S.</h1>
+                <p>Timely deliveries with real-time tracking, secure packaging, and affordable rates across shipment sizes.</p>
                 <div class="hero-actions">
                     <a class="button-primary" href="{{ url('/quote') }}">Request a Quote</a>
                     <a class="button-outline" href="{{ url('/tracking') }}">Track a Shipment</a>
@@ -23,9 +23,9 @@
             <img src="{{ asset('assets/shipping-containers-being-loaded-by-crane-port.jpg') }}" alt="Port crane loading containers">
             <div class="slide-overlay"></div>
             <div class="slide-content container">
-                <span class="badge">Import Management</span>
-                <h1>Customs clearance without delays.</h1>
-                <p>Dedicated import desk, compliance checks, and proactive coordination with Kenya port authorities.</p>
+                <span class="badge">Customs Assistance</span>
+                <h1>Smooth customs clearance.</h1>
+                <p>Guidance and processing support for international shipments to ensure a hassle-free delivery experience.</p>
                 <div class="hero-actions">
                     <a class="button-primary" href="{{ url('/importing') }}">Import Services</a>
                     <a class="button-outline" href="{{ url('/contact') }}">Speak to a Specialist</a>
@@ -36,9 +36,9 @@
             <img src="{{ asset('assets/shipping-containers-port-sunset.jpg') }}" alt="Container port at sunset">
             <div class="slide-overlay"></div>
             <div class="slide-content container">
-                <span class="badge">Warehousing & Storage</span>
-                <h1>Secure storage in Nairobi and Mombasa.</h1>
-                <p>Bonded storage, inventory audits, and temperature-controlled options for sensitive cargo.</p>
+                <span class="badge">Affordable Rates</span>
+                <h1>Competitive pricing for all sizes.</h1>
+                <p>Flexible options for small parcels to bulk orders, optimized for speed and safety.</p>
                 <div class="hero-actions">
                     <a class="button-primary" href="{{ url('/warehousing') }}">View Warehousing</a>
                     <a class="button-outline" href="{{ url('/quote') }}">Storage Quote</a>
@@ -49,9 +49,9 @@
             <img src="{{ asset('assets/jumbo-jet-flying-sky.jpg') }}" alt="Cargo aircraft in flight">
             <div class="slide-overlay"></div>
             <div class="slide-content container">
-                <span class="badge">Air Freight</span>
-                <h1>Fast air cargo with full visibility.</h1>
-                <p>Priority routes for urgent shipments and time-critical imports with continuous tracking.</p>
+                <span class="badge">Customer Support</span>
+                <h1>Dedicated updates every step.</h1>
+                <p>We keep you informed from dispatch to delivery, with live status and responsive support.</p>
                 <div class="hero-actions">
                     <a class="button-primary" href="{{ url('/shipping') }}">Air & Ocean Freight</a>
                     <a class="button-outline" href="{{ url('/services') }}">All Services</a>
@@ -75,9 +75,9 @@
             <img src="https://images.unsplash.com/photo-1543246086-1b78c93666f3?q=80&w=1920&auto=format&fit=crop" alt="Aerial view of container ship">
             <div class="slide-overlay"></div>
             <div class="slide-content container">
-                <span class="badge">Global Coverage</span>
-                <h1>Reliable sailings across major trade lanes.</h1>
-                <p>Carrier selection and routing aligned to Kenyan port schedules to minimize delays and demurrage.</p>
+                <span class="badge">On-Time Delivery</span>
+                <h1>On-time delivery, every time.</h1>
+                <p>We align operations for reliable timelines and a smooth, hassle-free shipping experience.</p>
                 <div class="hero-actions">
                     <a class="button-primary" href="{{ url('/services') }}">Explore Services</a>
                     <a class="button-outline" href="{{ url('/quote') }}">Get a Quote</a>

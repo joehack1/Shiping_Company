@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'BlueWave Shipping')</title>
-    <meta name="description" content="@yield('meta_description', 'Kenya-based overseas logistics, importing, and warehousing partner delivering disciplined timelines and clear documentation.')">
+    <title>@yield('title', 'Anzunzu Commercial Exports')</title>
+    <meta name="description" content="@yield('meta_description', 'Fast and secure parcel delivery to the U.S. with tracking, secure packaging, affordable rates, customs clearance assistance, and dedicated customer support.')">
     <link rel="canonical" href="{{ request()->url() }}">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="@yield('og_title', trim($__env->yieldContent('title', 'BlueWave Shipping')))">
-    <meta property="og:description" content="@yield('og_description', trim($__env->yieldContent('meta_description', 'Kenya-based overseas logistics, importing, and warehousing partner delivering disciplined timelines and clear documentation.')))">
+    <meta property="og:title" content="@yield('og_title', trim($__env->yieldContent('title', 'Anzunzu Commercial Exports')))">
+    <meta property="og:description" content="@yield('og_description', trim($__env->yieldContent('meta_description', 'Fast and secure parcel delivery to the U.S. with tracking, secure packaging, affordable rates, customs clearance assistance, and dedicated customer support.')))">
     <meta property="og:url" content="{{ request()->url() }}">
     <meta property="og:image" content="@yield('og_image', asset('assets/jumbo-jet-flying-sky.jpg'))">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="@yield('og_title', trim($__env->yieldContent('title', 'BlueWave Shipping')))">
-    <meta name="twitter:description" content="@yield('og_description', trim($__env->yieldContent('meta_description', 'Kenya-based overseas logistics, importing, and warehousing partner delivering disciplined timelines and clear documentation.')))">
+    <meta name="twitter:title" content="@yield('og_title', trim($__env->yieldContent('title', 'Anzunzu Commercial Exports')))">
+    <meta name="twitter:description" content="@yield('og_description', trim($__env->yieldContent('meta_description', 'Fast and secure parcel delivery to the U.S. with tracking, secure packaging, affordable rates, customs clearance assistance, and dedicated customer support.')))">
     <meta name="twitter:image" content="@yield('og_image', asset('assets/jumbo-jet-flying-sky.jpg'))">
     <link rel="stylesheet" href="{{ asset('css/site.css') }}">
 </head>
@@ -22,10 +22,10 @@
         <header class="site-header">
             <div class="container header-inner">
                 <a class="brand" href="{{ url('/') }}">
-                    <span class="brand-mark"></span>
+                    <img class="brand-logo" src="https://anzunzucommercialexports.com/favicon.ico" alt="Anzunzu Commercial Exports">
                     <div class="brand-text">
-                        <span class="brand-name">BlueWave Shipping</span>
-                        <span class="brand-tag">Kenya � Overseas Logistics</span>
+                        <span class="brand-name">Anzunzu Commercial Exports</span>
+                        <span class="brand-tag">Fast Parcel Delivery to the U.S.</span>
                     </div>
                 </a>
                 <nav class="nav">
@@ -50,8 +50,8 @@
         <footer class="site-footer">
             <div class="container footer-grid">
                 <div>
-                    <div class="footer-brand">BlueWave Shipping Ltd</div>
-                    <p class="muted">Kenya-based logistics partner for overseas shipping, import management, and secure warehousing.</p>
+                    <div class="footer-brand">Anzunzu Commercial Exports</div>
+                    <p class="muted">Fast and secure parcel delivery with real-time tracking and customs clearance assistance.</p>
                 </div>
                 <div>
                     <div class="footer-title">Operations</div>
@@ -65,8 +65,8 @@
                 </div>
             </div>
             <div class="container footer-bottom">
-                <span>� {{ date('Y') }} BlueWave Shipping Ltd. All rights reserved.</span>
-                <span>Licensed for international freight forwarding & customs brokerage.</span>
+                <span>� {{ date('Y') }} Anzunzu Commercial Exports. All rights reserved.</span>
+                <span>Delivering excellence, on-time, every time.</span>
             </div>
         </footer>
     </div>
