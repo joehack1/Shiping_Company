@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Warehousing | BlueWave Shipping')
+@section('title', 'Warehousing | Anzunzu Commercial Exports')
 
 @section('content')
 <section class="hero">
